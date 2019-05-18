@@ -13,7 +13,7 @@ public class ArduinoBO {
 	
 	
 	private static ArduinoBO arduinoBo;
-	private static ArrayList<Arduino> lista = new ArrayList<>();
+	private static Arduino sensor;
 	
 	public static ArduinoBO getInstance() {
 		if(arduinoBo == null) {
@@ -26,18 +26,33 @@ public class ArduinoBO {
 	
 	public ArduinoBO(){
 		
-		lista.add(new Arduino(40.0, 50.0, Estado.LIGADO));
-	
+		sensor = new Arduino(40.0, 50.0, Estado.LIGADO);
+		
+		
 	}
 	
 	
-	public List<Arduino> listar(){
-		return lista;	
+//	public List<Arduino> listar(){
+//		return lista;	
+//	}
+	
+	
+	
+	public Arduino buscar() {
+		return sensor;
+		
 	}
 	
-	public List<Arduino> mudarEstado(Estado estado){
-		lista.add(new Arduino(40.0, 50.0, estado));
-		return lista;	
+	
+	
+	public Arduino obterLed(Estado led){
+		if(led == Estado.LIGADO) {
+			sensor.setLed(led);
+			return sensor;
+		}else {
+			sensor.setLed(led);
+			return sensor;
+		}		
 	}
 	
 	

@@ -19,18 +19,25 @@ public class ArduinoResource {
 	
 	
 	
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public List<Arduino> buscar(){
+//		return arduinoBO.listar();
+//	}
+	
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Arduino> buscar(){
-		return arduinoBO.listar();
+	public Arduino buscarMedicao(){
+		return arduinoBO.buscar();
 	}
 	
 	
 	@GET
 	@Path("/{estado}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Arduino> mudarEstado(@PathParam("estado") Estado e){
-		return arduinoBO.mudarEstado(e);
+	public Arduino readLed(@PathParam("estado") Estado e){
+		return arduinoBO.obterLed(e);
 	}
 	
 

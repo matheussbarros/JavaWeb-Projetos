@@ -6,13 +6,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 
-@XmlRootElement
+
 public class Arduino implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double humidade;
 	private double luminosidade;
-	private Estado estado;
+	private Estado led;
 	
 	
 	
@@ -24,11 +28,11 @@ public class Arduino implements Serializable {
 
 
 
-	public Arduino(double humidade, double luminosidade, Estado estado) {
+	public Arduino(double humidade, double luminosidade, Estado led) {
 		super();
 		this.humidade = humidade;
 		this.luminosidade = luminosidade;
-		this.estado = estado;
+		this.led = led;
 	}
 
 
@@ -62,17 +66,18 @@ public class Arduino implements Serializable {
 
 
 
-	public Estado getEstado() {
-		return estado;
+	public Estado getLed() {
+		return led;
 	}
 
 
 
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setLed(Estado led) {
+		this.led = led;
 	}
-	
+
+
 	
 	
 	
