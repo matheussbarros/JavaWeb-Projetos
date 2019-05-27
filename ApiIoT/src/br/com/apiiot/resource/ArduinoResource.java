@@ -40,5 +40,13 @@ public class ArduinoResource {
 		return arduinoBO.obterLed(e);
 	}
 	
+	@GET
+	@Path("buzzer/{estado}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Arduino readBuzzer(@PathParam("estado") Estado e){
+		return arduinoBO.obterBuzzer(e);
+	}
+	
+	
 
 }

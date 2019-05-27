@@ -1,8 +1,6 @@
 package br.com.apiiot.bo;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Random;
 
 import br.com.apiiot.bean.Arduino;
 import br.com.apiiot.bean.Estado;
@@ -15,6 +13,8 @@ public class ArduinoBO {
 	private static ArduinoBO arduinoBo;
 	private static Arduino sensor;
 	
+	Random rand = new Random();
+	
 	public static ArduinoBO getInstance() {
 		if(arduinoBo == null) {
 			arduinoBo = new ArduinoBO();
@@ -26,7 +26,7 @@ public class ArduinoBO {
 	
 	public ArduinoBO(){
 		
-		sensor = new Arduino(40.0, 50.0, Estado.LIGADO);
+		sensor = new Arduino(rand.nextInt(200), rand.nextInt(200), Estado.LIGADO, Estado.DESLIGADO);
 		
 		
 	}
@@ -39,6 +39,7 @@ public class ArduinoBO {
 	
 	
 	public Arduino buscar() {
+		
 		return sensor;
 		
 	}
@@ -51,6 +52,16 @@ public class ArduinoBO {
 			return sensor;
 		}else {
 			sensor.setLed(led);
+			return sensor;
+		}		
+	}
+	
+	public Arduino obterBuzzer(Estado buzzer){
+		if(buzzer == Estado.LIGADO) {
+			sensor.setBuzzer(buzzer);
+			return sensor;
+		}else {
+			sensor.setBuzzer(buzzer);
 			return sensor;
 		}		
 	}
